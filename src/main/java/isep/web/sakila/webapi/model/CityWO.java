@@ -2,7 +2,7 @@ package isep.web.sakila.webapi.model;
 
 import isep.web.sakila.jpa.entities.City;
 import isep.web.sakila.jpa.entities.Country;
-
+import isep.web.sakila.webapi.model.CountryWO;
 public class CityWO extends WebObject
 {
 
@@ -11,21 +11,19 @@ public class CityWO extends WebObject
 	protected int cityId;
 	protected String cityName;
 	protected int countryId;
-	//protected String country;
-	//protected Country countryOB;
+	protected CountryWO countryWO;
 
 	public CityWO()
 	{
 		super();
 	}
 
-	public CityWO(int cityId, String cityName, String country)
+	public CityWO(int cityId, String cityName, CountryWO countryWO)
 	{
 		super();
 		this.cityId = cityId;
 		this.cityName = cityName;
-		//this.country = country;
-		
+		this.countryWO = countryWO;			
 	}
 
 	public CityWO(final City city)
@@ -34,6 +32,8 @@ public class CityWO extends WebObject
 		this.cityId = city.getCityId();
 		this.cityName = city.getCity();
 		this.countryId = city.getCountry().getCountryId();
+		//this.countryName = city.getCountry().getCountry();
+		this.countryWO = new CountryWO(city.getCountry());
 	}
 
 	public int getcountryId()
@@ -58,7 +58,6 @@ public class CityWO extends WebObject
 
 	public void setcountryId(int countryId)
 	{
-		//this.countryOB = countryOB;
 		this.countryId = countryId;
 	}
 
@@ -66,7 +65,15 @@ public class CityWO extends WebObject
 	{
 		this.cityId = cityId;
 	}
+	
+	public CountryWO getCountry() {
+		return countryWO;
+	}
 
+	public void setCountry(CountryWO countryWO) {
+		this.countryWO = countryWO;
+	}
+	
 	public void setcityName(String cityName)
 	{
 		this.cityName = cityName;
