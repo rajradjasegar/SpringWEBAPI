@@ -4,20 +4,20 @@ App.factory('CustomerService', ['$http', '$q', function($http, $q){
 
 	return {
 		
-			fetchAllCountries: function() {
+			fetchAllCustomers: function() {
 					return $http.get('http://127.0.0.1:8080/customer/')
 							.then(
 									function(response){
 										return response.data;
 									}, 
 									function(errResponse){
-										console.error('Error while fetching countries');
+										console.error('Error while fetching customers');
 										return $q.reject(errResponse);
 									}
 							);
 			},
 		    
-		    createCountry: function(customer){
+		    createCustomer: function(customer){
 					return $http.post('http://127.0.0.1:8080/customer/', customer)
 							.then(
 									function(response){
@@ -30,7 +30,7 @@ App.factory('CustomerService', ['$http', '$q', function($http, $q){
 							);
 		    },
 		    
-		    updateCountry: function(customer, customerId){
+		    updateCustomer: function(customer, customerId){
      	    	    console.log("XXX", customer);
 					return $http.post('http://127.0.0.1:8080/customerUpdate/', customer)
 							.then(
@@ -44,7 +44,7 @@ App.factory('CustomerService', ['$http', '$q', function($http, $q){
 							);
 			},
 		    
-			deleteCountry: function(customerId){
+			deleteCustomer: function(customerId){
 					return $http.get('http://127.0.0.1:8080/customerDelete/'+customerId)
 							.then(
 									function(response){

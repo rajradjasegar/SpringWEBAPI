@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import isep.web.sakila.dao.repositories.FilmRepository;
-import isep.web.sakila.dao.repositories.FilmRepository;
-import isep.web.sakila.jpa.entities.Film;
 import isep.web.sakila.jpa.entities.Film;
 import isep.web.sakila.webapi.model.FilmWO;
-import isep.web.sakila.webapi.model.FilmWO;
+
+import isep.web.sakila.dao.repositories.LanguageRepository;
+import isep.web.sakila.jpa.entities.Language;
 
 
 @Service("filmService")
@@ -24,7 +24,9 @@ public class FilmServiceImpl implements FilmService {
 
 	@Autowired
 	private FilmRepository	filmRepository;
-
+	
+	private LanguageRepository languageRepository;
+	
 	private static final Log log = LogFactory.getLog(FilmServiceImpl.class);
 
 	public List<FilmWO> findAllFilms()
@@ -58,6 +60,13 @@ public class FilmServiceImpl implements FilmService {
 		film.setTitle(filmWO.getTitle());
 		film.setDescription(filmWO.getDescription());
 		film.setLastUpdate(new Timestamp(System.currentTimeMillis()));
+		
+
+		Language language = languageRepository.findOne((int) filmWO.getLanguage_id());
+		if (language != null) {
+			film.setLanguage1(language);
+		}
+		
 		filmRepository.save(film);
 	}
 

@@ -2,7 +2,7 @@
 
 App.controller('CustomerController', ['$scope', 'CustomerService', function($scope, CustomerService) {
           var self = this;
-          self.customer={customerId:null,lastName:''};
+          self.customer={customerId:null,lastName:'',firstName:''};
           self.customers=[];
               
           self.fetchAllCustomers = function(){
@@ -84,7 +84,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
 
           
           self.reset = function(){
-              self.customer={customerId:null,lastName:''};
+              self.customer={customerId:null,lastName:'',firstName:''};
               $scope.myForm.$setPristine(); //reset Form
           };
 
