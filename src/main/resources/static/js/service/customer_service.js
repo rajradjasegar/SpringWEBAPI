@@ -1,23 +1,23 @@
 'use strict';
 
-App.fcustomery('CustomerService', ['$http', '$q', function($http, $q){
+App.factory('CustomerService', ['$http', '$q', function($http, $q){
 
 	return {
 		
-			fetchAllCustomers: function() {
+			fetchAllCountries: function() {
 					return $http.get('http://127.0.0.1:8080/customer/')
 							.then(
 									function(response){
 										return response.data;
 									}, 
 									function(errResponse){
-										console.error('Error while fetching customers');
+										console.error('Error while fetching countries');
 										return $q.reject(errResponse);
 									}
 							);
 			},
 		    
-		    createCustomer: function(customer){
+		    createCountry: function(customer){
 					return $http.post('http://127.0.0.1:8080/customer/', customer)
 							.then(
 									function(response){
@@ -30,7 +30,7 @@ App.fcustomery('CustomerService', ['$http', '$q', function($http, $q){
 							);
 		    },
 		    
-		    updateCustomer: function(customer, customerId){
+		    updateCountry: function(customer, customerId){
      	    	    console.log("XXX", customer);
 					return $http.post('http://127.0.0.1:8080/customerUpdate/', customer)
 							.then(
@@ -44,7 +44,7 @@ App.fcustomery('CustomerService', ['$http', '$q', function($http, $q){
 							);
 			},
 		    
-			deleteCustomer: function(customerId){
+			deleteCountry: function(customerId){
 					return $http.get('http://127.0.0.1:8080/customerDelete/'+customerId)
 							.then(
 									function(response){
