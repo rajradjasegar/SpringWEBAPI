@@ -2,6 +2,7 @@ package isep.web.sakila.webapi.service;
 
 import java.util.List;
 
+import isep.web.sakila.jpa.entities.Country;
 import isep.web.sakila.webapi.model.CountryWO;
 
 public interface CountryService
@@ -15,5 +16,8 @@ public interface CountryService
 	void deleteCountryById(int id);
 
 	List<CountryWO> findAllCountries();
+
+	Country convert(CountryWO countryWO);
+	
 
 }
