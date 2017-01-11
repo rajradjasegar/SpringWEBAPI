@@ -2,7 +2,7 @@
 
 App.controller('FilmController', ['$scope', 'FilmService', function($scope, FilmService) {
           var self = this;
-          self.film={filmId:null,title:'',description:''};
+          self.film={filmId:null,title:'',description:'',language:'',filmActors:'',filmCategories:'',language_id:'',rentalDuration:'',replaCost:''};
           self.films=[];
               
           self.fetchAllFilms = function(){
@@ -84,7 +84,7 @@ App.controller('FilmController', ['$scope', 'FilmService', function($scope, Film
 
           
           self.reset = function(){
-              self.film={filmId:null,title:'',description:''};
+              self.film={filmId:null,title:'',description:'',language:'',filmActors:'',filmCategories:'',language_id:'',rentalDuration:'',replaCost:''};
               $scope.myForm.$setPristine(); //reset Form
           };
 
