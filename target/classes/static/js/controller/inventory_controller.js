@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 App.controller('InventoryController', ['$scope', '$cookieStore', 'InventoryService', 'FilmService', 
                                        function($scope, $cookieStore, InventoryService, FilmService) {
 	var self = this;

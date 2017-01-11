@@ -1,11 +1,8 @@
-/**
- * 
- */
 App.factory('InventoryService', ['$http', '$q', function($http, $q){
 	return {
 		getInventories: function(){
 			console.log('Using the Inventory Service: getInventories.');
-			return $http.get('http://localhost:8080/getInventories/').then(
+			return $http.get('http://127.0.0.1:8080/getInventories/').then(
 					function(res){
 						console.log('Sucess du service, getInventories ');
 						return res.data;
@@ -28,7 +25,7 @@ App.factory('InventoryService', ['$http', '$q', function($http, $q){
 			)
 		},
 		getInventoriesByFilmId: function(filmId){
-			return $http.get('http://localhost:8080/getInventoryByIdFilm/' + filmId).then(
+			return $http.get('http://127.0.0.1:8080/getInventoryByIdFilm/' + filmId).then(
 					function(res){
 						return res.data;
 					},
@@ -39,7 +36,7 @@ App.factory('InventoryService', ['$http', '$q', function($http, $q){
 		},
 		createInventory: function(inventory){
 			console.log('Using the Inventory Service: createInventory.');
-			return $http.post('http://localhost:8080/createInventory/', inventory).then(
+			return $http.post('http://127.0.0.1:8080/createInventory/', inventory).then(
 					function(res){
 						console.log('Sucess du service, createInventory ');
 						return res.data;
@@ -52,7 +49,7 @@ App.factory('InventoryService', ['$http', '$q', function($http, $q){
 		},
 		deteleInventoryByFilmId: function(id){
 			console.log('Using the Inventory Service: deteleInventoryByFilmId.');
-			return $http.get('http://localhost:8080/deleteInventoryByIdFilm/' + id).then(
+			return $http.get('http://127.0.0.1:8080/deleteInventoryByIdFilm/' + id).then(
 				function(res){
 					console.log('Sucess du service, deteleInventoryByFilmId ');
 					return res.data;
@@ -65,7 +62,7 @@ App.factory('InventoryService', ['$http', '$q', function($http, $q){
 		},
 		deleteInventory: function(inventory){
 			console.log('Using the Inventory Service: deleteInventory.');
-			return $http.get('http://localhost:8080/deleteInventory/', inventory).then(
+			return $http.get('http://127.0.0.1:8080/deleteInventory/', inventory).then(
 					function(res){
 						console.log('Sucess du service, creatInventory ');
 						return res.data;

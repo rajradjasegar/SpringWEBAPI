@@ -9,6 +9,7 @@ import java.util.List;
 import isep.web.sakila.jpa.entities.Film;
 import isep.web.sakila.jpa.entities.FilmActor;
 import isep.web.sakila.jpa.entities.FilmCategory;
+import isep.web.sakila.jpa.entities.Language;
 
 public class FilmWO {
 	private static final long	serialVersionUID	= -1377067679473844279L;
@@ -16,6 +17,7 @@ public class FilmWO {
 	protected int filmId;
 	protected String title;
 	protected String description;
+	private Language language;
 	private List<Integer> filmActors;
 	private List<Byte> filmCategories;
 	private byte language_id;
@@ -28,13 +30,14 @@ public class FilmWO {
 	}
 
 	public FilmWO(int filmId, String title, String description, List<Integer> filmActors, List<Byte> filmCategories, byte language_id,
-			byte rentalDuration, BigDecimal replaCost)
+			byte rentalDuration, BigDecimal replaCost, Language language)
 	{
 		super();
 		this.filmId = filmId;
 		this.title = title;
 		this.description = description;
 		this.filmActors = filmActors;
+		this.language = language;
 		this.filmCategories = filmCategories;
 		this.language_id = language_id;
 		this.rentalDuration = rentalDuration;
@@ -58,6 +61,7 @@ public class FilmWO {
 			filmCategories.add(filmCat.getCategory().getCategoryId());
 		}
 		
+		this.language=film.getLanguage1();
 		this.language_id = film.getLanguage1().getLanguageId();
 		this.rentalDuration = film.getRentalDuration();
 		this.replaCost = film.getReplacementCost();
@@ -109,6 +113,16 @@ public class FilmWO {
 	public byte getLanguage_id() {
 		return language_id;
 	}
+	
+	public Language getLanguage(){
+		return language;
+		
+	}
+	
+	public void setLanguage(Language language) {
+		this.language = language;
+	}
+	
 	public void setLanguage_id(byte language_id) {
 		this.language_id = language_id;
 	}
@@ -126,8 +140,11 @@ public class FilmWO {
 	}
 
 	@Override
-	public String toString()
-	{
-		return "Film [id=" + this.filmId + ", Title =" + this.title+ ", Description =" + this.description+ "]";
+	public String toString() {
+		return "FilmWO [filmId=" + filmId + ", title=" + title + ", description=" + description + ", language="
+				+ language + ", filmActors=" + filmActors + ", filmCategories=" + filmCategories + ", language_id="
+				+ language_id + ", rentalDuration=" + rentalDuration + ", replaCost=" + replaCost + "]";
 	}
+
+	
 }

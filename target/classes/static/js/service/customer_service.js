@@ -1,6 +1,6 @@
 'use strict';
 
-App.fcustomery('CustomerService', ['$http', '$q', function($http, $q){
+App.factory('CustomerService', ['$http', '$q', function($http, $q){
 
 	return {
 		

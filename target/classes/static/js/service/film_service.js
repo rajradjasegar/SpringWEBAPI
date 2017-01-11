@@ -1,6 +1,6 @@
 'use strict';
 
-App.ffilmy('FilmService', ['$http', '$q', function($http, $q){
+App.factory('FilmService', ['$http', '$q', function($http, $q){
 
 	return {
 		
@@ -17,7 +17,7 @@ App.ffilmy('FilmService', ['$http', '$q', function($http, $q){
 							);
 			},
 		    
-		    createActor: function(film){
+		    createFilm: function(film){
 					return $http.post('http://127.0.0.1:8080/film/', film)
 							.then(
 									function(response){
@@ -30,7 +30,7 @@ App.ffilmy('FilmService', ['$http', '$q', function($http, $q){
 							);
 		    },
 		    
-		    updateActor: function(film, filmId){
+		    updateFilm: function(film, filmId){
      	    	    console.log("XXX", film);
 					return $http.post('http://127.0.0.1:8080/filmUpdate/', film)
 							.then(
@@ -44,7 +44,7 @@ App.ffilmy('FilmService', ['$http', '$q', function($http, $q){
 							);
 			},
 		    
-			deleteActor: function(filmId){
+			deleteFilm: function(filmId){
 					return $http.get('http://127.0.0.1:8080/filmDelete/'+filmId)
 							.then(
 									function(response){
