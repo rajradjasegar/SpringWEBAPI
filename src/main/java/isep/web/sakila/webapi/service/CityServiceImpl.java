@@ -22,9 +22,7 @@ public class CityServiceImpl implements CityService
 {
 	@Autowired
 	private CityRepository	cityRepository;
-	
-	@Autowired 
-	private CountryService countryService;
+	private CountryRepository	countryRepository;
 
 	private static final Log log = LogFactory.getLog(CityServiceImpl.class);
 
@@ -54,13 +52,12 @@ public class CityServiceImpl implements CityService
 	}
 
 	public void saveCity(CityWO cityWO)
-	{			
+	{
+		Country country = countryRepository.findOne(cityWO.getcountryId());
+		
 		City city = new City();
 		city.setCity(cityWO.getcityName());
-		
-		city.setCountry(countryService.convert(cityWO.getCountry()));
-		
-		//city.setCountry(country);
+		city.setCountry(country);
 		city.setLastUpdate(new Timestamp(System.currentTimeMillis()));
 		cityRepository.save(city);
 	}
@@ -68,20 +65,12 @@ public class CityServiceImpl implements CityService
 	public void updateCity(CityWO cityWO)
 	{
 		City city2update = cityRepository.findOne(cityWO.getCityId());
-		//Country country = countryRepository.findOne(cityWO.getcountryId());
+		Country country = countryRepository.findOne(cityWO.getcountryId());
 		
 		city2update.setCity(cityWO.getcityName());
-		city2update.setCountry(countryService.convert(cityWO.getCountry()));
-		//city2update.setCountry(country);
+		city2update.setCountry(country);
 		city2update.setLastUpdate(new Timestamp(System.currentTimeMillis()));
 		cityRepository.save(city2update);
-	}
-	
-	public City convert(final CityWO cityWO){
-		City convertedCity = new City();
-		convertedCity.setCity(cityWO.getcityName());
-		convertedCity.setCountry(countryService.convert(cityWO.getCountry()));
-		return convertedCity;
 	}
 
 	@Override

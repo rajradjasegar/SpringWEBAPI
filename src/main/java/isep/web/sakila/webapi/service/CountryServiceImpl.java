@@ -69,12 +69,5 @@ public class CountryServiceImpl implements CountryService
 	{
 		countryRepository.delete(id);
 	}
-	
-	public Country convert(final CountryWO countryWO)
-	{ 
-		Country convertedCountry = new Country(); 
-		convertedCountry.setCountry(countryWO.getcountryName()); 
-		return convertedCountry; 
-	}
 
 }

@@ -4,7 +4,6 @@ isep\web\sakila\webapi\service\CustomerService.class
 isep\web\sakila\webapi\service\CityService.class
 isep\web\sakila\webapi\service\RentalService.class
 isep\web\sakila\webapi\service\StoreService.class
-isep\web\sakila\webapi\config\WebSecurityConfig.class
 isep\web\sakila\webapi\model\CountryWO.class
 isep\web\sakila\webapi\model\RentalWO.class
 isep\web\sakila\webapi\model\StoreWO.class
