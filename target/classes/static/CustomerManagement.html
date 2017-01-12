@@ -61,7 +61,16 @@
                               </div>
                           </div>
                       </div>
-
+                      
+                      <div class="row">
+                          <div class="form-group col-md-12">
+                              <label class="col-md-2 control-lable" for="file">Email</label>
+                              <div class="col-md-7">
+                                  <input type="text" ng-model="ctrl.customer.email" name="firstName"  class="form-control input-sm" placeholder="Enter Customer EMail"/>
+                              </div>
+                          </div>
+                      </div>
+						
                       <div class="row">
                           <div class="form-actions floatRight">
                               <input type="submit"  value="{{!ctrl.customer.customerId ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">

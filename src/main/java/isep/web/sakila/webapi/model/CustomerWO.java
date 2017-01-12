@@ -10,18 +10,24 @@ public class CustomerWO {
 	protected int customerId;
 	protected String firstName;
 	protected String lastName;
+	protected String email;
+	protected int address_id;
+	protected int store_id;
 	
 	public CustomerWO()
 	{
 		super();
 	}
 	
-	public CustomerWO(int customerId, String firstName, String lastName)
+	public CustomerWO(int customerId, String firstName, String lastName, String email, int address_id, int store_id)
 	{
 		super();
 		this.customerId = customerId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
+		this.address_id = address_id;
+		this.store_id = store_id;
 	}
 	
 	public CustomerWO(final Customer customer)
@@ -30,6 +36,9 @@ public class CustomerWO {
 		this.customerId = customer.getCustomerId();
 		this.firstName = customer.getFirstName();
 		this.lastName = customer.getLastName();
+		this.email = customer.getEmail();
+		this.address_id = customer.getAddress().getAddressId();
+		this.store_id = customer.getStore().getStoreId();
 	}
 
 	
@@ -65,10 +74,37 @@ public class CustomerWO {
 	{
 		this.lastName = lastName;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getAddress_id() {
+		return address_id;
+	}
+
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
+
+	public int getStore_id() {
+		return store_id;
+	}
+
+	public void setStore_id(int store_id) {
+		this.store_id = store_id;
+	}
 
 	@Override
-	public String toString()
-	{
-		return "Customer [id=" + this.customerId + ", First Name =" + this.firstName+ ", Last Name =" + this.lastName+ "]";
+	public String toString() {
+		return "CustomerWO [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", address_id=" + address_id + ", store_id=" + store_id + "]";
 	}
+
+
+
 }

@@ -2,6 +2,7 @@ isep\web\sakila\webapi\config\MvcConfig.class
 isep\web\sakila\webapi\service\ActorServiceImpl.class
 isep\web\sakila\webapi\service\CustomerService.class
 isep\web\sakila\webapi\service\CityService.class
+isep\web\sakila\webapi\service\AddressServiceImpl.class
 isep\web\sakila\webapi\service\RentalService.class
 isep\web\sakila\webapi\service\StoreService.class
 isep\web\sakila\webapi\model\CountryWO.class
@@ -9,6 +10,7 @@ isep\web\sakila\webapi\model\RentalWO.class
 isep\web\sakila\webapi\model\StoreWO.class
 isep\web\sakila\webapi\SakilaBusinessWebapiApplication.class
 isep\web\sakila\webapi\controller\CustomerRestController.class
+isep\web\sakila\webapi\service\AddressService.class
 isep\web\sakila\webapi\controller\FilmRestController.class
 isep\web\sakila\webapi\service\LanguageServiceImpl.class
 isep\web\sakila\webapi\service\CustomerServiceImpl.class
@@ -31,11 +33,13 @@ isep\web\sakila\webapi\service\InventoryServiceImpl.class
 isep\web\sakila\webapi\controller\LanguageRestController.class
 isep\web\sakila\webapi\model\InventoryWO.class
 isep\web\sakila\webapi\service\CategoryServiceImpl.class
+isep\web\sakila\webapi\model\AddressWO.class
 isep\web\sakila\webapi\service\FilmServiceImpl.class
 isep\web\sakila\webapi\model\CategoryWO.class
 isep\web\sakila\webapi\model\LanguageWO.class
 isep\web\sakila\webapi\service\StaffService.class
 isep\web\sakila\webapi\model\CustomerWO.class
+isep\web\sakila\webapi\controller\AddressRestController.class
 isep\web\sakila\webapi\controller\CityRestController.class
 isep\web\sakila\webapi\model\ActorWO.class
 isep\web\sakila\webapi\model\CityWO.class
