@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="css/styleLogin.css" />
+        <script src="js/jsLogin.js"></script>
+
+    </head>
+    <body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                </div>
+            </div>
+            
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>
+                <!--<form class="login"> -->
+                <form id="form_id" method="post" name="myform">
+				<label>UserName :</label> <input type="text" name="username"
+					id="username" /> <label>Password :</label> <input type="password"
+					name="password" id="password" /> <input type="button"
+					value="Login" id="submit" onclick="validate()" />
+			</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+</html>
+
+
+
+
