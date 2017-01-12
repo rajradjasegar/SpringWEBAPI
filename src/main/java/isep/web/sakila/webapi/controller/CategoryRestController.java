@@ -40,7 +40,7 @@ public class CategoryRestController
 	}
 
 	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CategoryWO> getCategory(@PathVariable("id") int id)
+	public ResponseEntity<CategoryWO> getCategory(@PathVariable("id") byte id)
 	{
 		System.out.println("Fetching Category with id " + id);
 		CategoryWO staffWO = categoryService.findById(id);
@@ -70,7 +70,7 @@ public class CategoryRestController
 	public ResponseEntity<CategoryWO> updateCategory(@RequestBody CategoryWO categoryWO, UriComponentsBuilder ucBuilder)
 	{
 		log.error(String.format("Updating Category %s ", categoryWO.getCategoryId()));
-		CategoryWO currentCategory = categoryService.findById(categoryWO.getCategoryId());
+		CategoryWO currentCategory = categoryService.findById((byte)categoryWO.getCategoryId());
 
 		if (currentCategory == null)
 		{
@@ -85,7 +85,7 @@ public class CategoryRestController
 	}
 
 	@RequestMapping(value = "/categoryDelete/{id}", method = RequestMethod.GET)
-	public ResponseEntity<CategoryWO> deleteCategory(@PathVariable("id") int id)
+	public ResponseEntity<CategoryWO> deleteCategory(@PathVariable("id") byte id)
 	{
 
 		System.out.println("Fetching & Deleting Category with id " + id);

@@ -19,7 +19,7 @@ import isep.web.sakila.webapi.model.CategoryWO;
 public class CategoryServiceImpl implements CategoryService
 {
 	@Autowired
-	private CategoryRepository	categoryRepository;
+	private CategoryRepository categoryRepository;
 
 	private static final Log log = LogFactory.getLog(CategoryServiceImpl.class);
 
@@ -36,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService
 		return categories;
 	}
 
-	public CategoryWO findById(int id)
+	public CategoryWO findById(byte id)
 	{
 		log.debug(String.format("Looking for user by Id %s", id));
 		Category category = categoryRepository.findOne(id);
@@ -58,14 +58,14 @@ public class CategoryServiceImpl implements CategoryService
 
 	public void updateCategory(CategoryWO categoryWO)
 	{
-		Category category2update = categoryRepository.findOne(categoryWO.getCategoryId());
+		Category category2update = categoryRepository.findOne((byte)categoryWO.getCategoryId());
 		category2update.setName(categoryWO.getcategoryName());
 		category2update.setLastUpdate(new Timestamp(System.currentTimeMillis()));
 		categoryRepository.save(category2update);
 	}
 
 	@Override
-	public void deleteCategoryById(int id)
+	public void deleteCategoryById(byte id)
 	{
 		categoryRepository.delete(id);
 	}

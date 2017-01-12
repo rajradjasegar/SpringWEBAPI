@@ -40,7 +40,7 @@ public class LanguageRestController
 	}
 
 	@RequestMapping(value = "/language/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<LanguageWO> getLanguage(@PathVariable("id") int id)
+	public ResponseEntity<LanguageWO> getLanguage(@PathVariable("id") byte id)
 	{
 		System.out.println("Fetching Language with id " + id);
 		LanguageWO staffWO = languageService.findById(id);
@@ -70,7 +70,7 @@ public class LanguageRestController
 	public ResponseEntity<LanguageWO> updateLanguage(@RequestBody LanguageWO languageWO, UriComponentsBuilder ucBuilder)
 	{
 		log.error(String.format("Updating Language %s ", languageWO.getLanguageId()));
-		LanguageWO currentLanguage = languageService.findById(languageWO.getLanguageId());
+		LanguageWO currentLanguage = languageService.findById((byte)languageWO.getLanguageId());
 
 		if (currentLanguage == null)
 		{
@@ -85,7 +85,7 @@ public class LanguageRestController
 	}
 
 	@RequestMapping(value = "/languageDelete/{id}", method = RequestMethod.GET)
-	public ResponseEntity<LanguageWO> deleteLanguage(@PathVariable("id") int id)
+	public ResponseEntity<LanguageWO> deleteLanguage(@PathVariable("id") byte id)
 	{
 
 		System.out.println("Fetching & Deleting Language with id " + id);

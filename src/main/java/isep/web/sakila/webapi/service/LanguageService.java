@@ -6,13 +6,13 @@ import isep.web.sakila.webapi.model.LanguageWO;
 
 public interface LanguageService
 {
-	LanguageWO findById(int id);
+	LanguageWO findById(byte id);
 
 	void saveLanguage(LanguageWO languageWO);
 
 	void updateLanguage(LanguageWO languageWO);
 
-	void deleteLanguageById(int id);
+	void deleteLanguageById(byte id);
 
 	List<LanguageWO> findAllLanguages();
 

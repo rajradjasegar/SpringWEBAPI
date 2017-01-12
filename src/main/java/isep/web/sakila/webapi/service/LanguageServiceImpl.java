@@ -36,7 +36,7 @@ public class LanguageServiceImpl implements LanguageService
 		return languages;
 	}
 
-	public LanguageWO findById(int id)
+	public LanguageWO findById(byte id)
 	{
 		log.debug(String.format("Looking for user by Id %s", id));
 		Language language = languageRepository.findOne(id);
@@ -58,14 +58,14 @@ public class LanguageServiceImpl implements LanguageService
 
 	public void updateLanguage(LanguageWO languageWO)
 	{
-		Language language2update = languageRepository.findOne(languageWO.getLanguageId());
+		Language language2update = languageRepository.findOne((byte)languageWO.getLanguageId());
 		language2update.setName(languageWO.getlanguageName());
 		language2update.setLastUpdate(new Timestamp(System.currentTimeMillis()));
 		languageRepository.save(language2update);
 	}
 
 	@Override
-	public void deleteLanguageById(int id)
+	public void deleteLanguageById(byte id)
 	{
 		languageRepository.delete(id);
 	}
